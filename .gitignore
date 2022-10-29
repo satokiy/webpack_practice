@@ -1,2 +1,3 @@
 /node_modules/*
 /udemy-practical-webpack/*
+.DS_Store
