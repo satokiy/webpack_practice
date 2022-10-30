@@ -9,16 +9,16 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'js/[name].bundle.js',
-    chunkFilename: 'js/[name].js',
+    filename: 'js/[name].[contenthash].bundle.js',
+    chunkFilename: 'js/[name].[contenthash].js',
   },
   optimization: {
     splitChunks: {
       chunks: 'initial',
       cacheGroups: {
-        vendor: { // 何でもOK
-          test: /node_modules/, // 分割の対象
-          name: 'vendor', // 出力ファイル名
+        vendor: {
+          test: /node_modules/,
+          name: 'vendor',
         },
         vendorModules: {
           test: /src[\\/]js[\\/]modules/, // 分割の対象
