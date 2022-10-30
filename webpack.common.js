@@ -33,10 +33,19 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        exclude: /node_modules/,
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        }
+      },
+      {
         test: /\.js$/, // loaderの処理体調
         exclude: /node_modules/, // loaderの処理対象外。基本的にnode_moduleはその内部でES5対応をしているので、excludeでOK
         loader: 'babel-loader',
-      }
+      },
     ]
   },
   plugins: [

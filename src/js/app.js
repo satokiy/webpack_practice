@@ -11,4 +11,6 @@ $('body').append(result)
 .append(`<p>${greet('App')}</p>`);
 
 velocity($('h1'), 'fadeIn', { duration: 2000, loop: true });
-// console.log(a);
+
+const a = 1;
+console.log(a);
