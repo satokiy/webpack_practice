@@ -30,6 +30,15 @@ module.exports = {
       
     }
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // loaderの処理体調
+        exclude: /node_modules/, // loaderの処理対象外。基本的にnode_moduleはその内部でES5対応をしているので、excludeでOK
+        loader: 'babel-loader',
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
