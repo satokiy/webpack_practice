@@ -1,8 +1,9 @@
 {
   "name": "webpack_practice",
   "scripts": {
+    "lint": "eslint src/js --fix",
     "dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "npm run lint && webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js"
   },
   "devDependencies": {

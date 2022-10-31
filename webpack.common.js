@@ -2,7 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {  
+module.exports = {
   entry: {
     app: './src/js/app.js',
     another: './src/js/another.js',
@@ -26,9 +26,8 @@ module.exports = {
           minSize: 0,
           minChunks: 2, // モジュールがいくつの場所で使われていれば分割の対象になるか
         },
-      }
-      
-    }
+      },
+    },
   },
   module: {
     rules: [
@@ -39,14 +38,14 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           fix: true,
-        }
+        },
       },
       {
         test: /\.js$/, // loaderの処理体調
         exclude: /node_modules/, // loaderの処理対象外。基本的にnode_moduleはその内部でES5対応をしているので、excludeでOK
         loader: 'babel-loader',
       },
-    ]
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -59,5 +58,5 @@ module.exports = {
       template: './src/html/another.html', // 入力ファイル名
       chunks: ['another'], // バンドルしたjsのどれを読み込むか。指定がなければすべて読み込まれる
     }),
-  ]
+  ],
 };
